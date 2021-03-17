@@ -1,0 +1,38 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+    width: 30%;
+    margin-top: 15px;
+    background-color: rgb(40, 40, 40);
+}
+
+#ubootcard video {
+    width: 100%;
+}
+
+.beschreibung {
+    padding: 2px 16px;
+}
+
+#codecard code {
+    font-size: large;
+    font-weight: bold;
+}
+
+#codecard pre {
+    padding-top: 10px;
+}
+
+#stimmecard audio {
+    padding: 10px;
+}
+
+#zitatcard q {
+    font-weight: bolder;
+    position: relative;
+    top: 10px;
+    left: 30px;
+}
+
+#zitatcard .beschreibung {
+    padding-top: 20px;
+}

@@ -1,0 +1,20 @@
+img {
+    height: 250px;
+    float: left;
+    padding-right: 10px;
+}
+
+#infodiv p {
+    padding: 5px 0px 5px 10px;
+}
+
+#infodiv {
+    background-color: rgb(40, 40, 40);
+    height: 250px;
+    width: 100%
+}
+
+#profilkarte {
+    width: 25%;
+    box-shadow: 5px 5px 5px rgb(0,0,0,0.5);
+}

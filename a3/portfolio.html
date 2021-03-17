@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+   <meta charset="utf-8">
+   <title>Portfolio - Aufgabe 2</title>
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/portfoliostyle.css">
+</head>
+<body>
+    <ul>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+    </ul><br><br>
+    <main>
+        <h1>Portfolio</h1>
+        <div class="card" id="ubootcard">
+            <video autoplay muted loop controls>
+                <source src="videos/UbootAberDieSchraubeDrehtSichNicht.mp4" type="video/mp4">
+            </video>
+            <div class="beschreibung" id="ubootbeschreibung">
+                <p>"U-Boot, aber die Schraube dreht sich nicht" by F. Kakuschke</p>
+            </div>
+        </div>
+        
+        <div class="card" id="codecard">
+            <pre><code>   public static int fib(int a){
+        if (a==1||a==2) return 1;
+        else return fib(a-1)+fib(a-2);
+    }</code></pre>
+            <div class="beschreibung" id="codebeschreibung">
+                <p>"Die Programmieraufgabe, die immer kommt wenn man rekursive Programmierung lernt" by F. Kakuschke</p>
+            </div>
+        </div>
+
+        <div class="card" id="stimmecard">
+            <audio controls>
+                <source src="audio/Stimme.ogg" type="audio/ogg">
+            </audio>
+            <div class="beschreibung" id="stimmebeschreibung">
+                <p>"Stimme" by F. Kakuschke</p>
+            </div>
+        </div>
+
+        <div class="card" id="zitatcard">
+            <q>Kannst du nachher Pizza machen?</q>
+            <div class="beschreibung" id="zitatbeschreibung">
+                <p>"Tiefgründiges Zitat" by L. Philipp</p>
+            </div>
+        </div>        
+    </main>
+</body>

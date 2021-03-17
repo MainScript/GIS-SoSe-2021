@@ -1,0 +1,37 @@
+a {
+    color: inherit;
+}
+
+i:not(#kappa) {
+    text-decoration: none;
+    font-size: 30px;
+}
+
+address div{
+    position: relative;
+    margin-bottom: 20px;
+    background-color: rgb(40, 40, 40);
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 5px;
+    width: 20%;
+    box-shadow: 5px 5px 5px rgb(0,0,0,0.5);
+}
+
+.textfeld {
+    position: relative;
+    bottom: 5px;
+}
+
+#valorant {
+    position: relative;
+    top: 5px;
+}
+
+#kappa {
+    font-size: smaller;
+}
+
+img {
+    width: 20%
+}
