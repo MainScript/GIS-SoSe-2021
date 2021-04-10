@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(30,30,30);
+    background-image: url("../images/bg.png");
+    background-repeat: repeat;
     color: white;
     font-family: verdana;
 }
@@ -30,4 +31,8 @@ li a {
 
 li a:hover {
     background-color: rgb(0, 50, 0);
+}
+
+h1 {
+    color: black;
 }
