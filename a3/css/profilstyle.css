@@ -11,10 +11,13 @@ img {
 #infodiv {
     background-color: rgb(40, 40, 40);
     height: 250px;
-    width: 100%
+    width: 100%;
+    
 }
 
 #profilkarte {
-    width: 25%;
+    width: 800px;
     box-shadow: 5px 5px 5px rgb(0,0,0,0.5);
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -2,7 +2,7 @@ a {
     color: inherit;
 }
 
-i:not(#kappa) {
+i:not(#kappa):not(#discordicon) {
     text-decoration: none;
     font-size: 30px;
 }
@@ -38,4 +38,22 @@ img {
 
 body {
     color: black;
+    text-align: center;
+}
+
+#kontaktformular {
+    width: 800px;
+    box-shadow: 5px 5px 5px rgb(0,0,0,0.5);
+    background-color: rgb(40, 40, 40);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input {
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#kontaktformular a {
+    color: green;
 }

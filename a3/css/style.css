@@ -18,7 +18,7 @@ ul {
 }
   
 li {
-    float: left;
+    float: right;
 }
   
 li a {
@@ -35,4 +35,23 @@ li a:hover {
 
 h1 {
     color: black;
+    text-align: center;
+}
+
+.aktuell {
+    background-color: green;
+}
+
+#discordicon {
+    opacity: 0.5;
+    color: black;
+    text-align: center;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    font-size: 50px;
+}
+
+#discordicon:hover {
+    opacity: 1;
 }
