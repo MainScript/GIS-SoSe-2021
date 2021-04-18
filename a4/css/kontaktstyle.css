@@ -7,7 +7,7 @@ i:not(#kappa):not(#discordicon) {
     font-size: 30px;
 }
 
-address div{
+address>div{
     position: relative;
     margin-bottom: 20px;
     background-color: rgb(40, 40, 40);
@@ -16,11 +16,6 @@ address div{
     padding-left: 5px;
     width: 20%;
     box-shadow: 5px 5px 5px rgb(0,0,0,0.5);
-}
-
-.textfeld {
-    position: relative;
-    bottom: 5px;
 }
 
 #valorant {
