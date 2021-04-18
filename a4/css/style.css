@@ -71,6 +71,10 @@ h1 {
     #profilkarte {
         width: 100%;
     }
+    
+    #schauJoJo {
+        width: 100%;
+    }
 }
 
 @media (min-width: 1024px) {
