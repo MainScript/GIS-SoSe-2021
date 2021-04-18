@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+   <meta charset="utf-8">
+   <title>Portfolio - Aufgabe 3</title>
+   <link rel="stylesheet" href="css/portfoliostyle.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <ul>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="portfolio.html" class="aktuell">Portfolio</a></li>
+        <li><a href="profil.html">Profil</a></li>
+    </ul><br><br>
+    <main>
+        <h1>Portfolio - Felix Kakuschke</h1>
+        <a href="https://discordapp.com/users/414510493177348097" target="_blank"><i class="fab fa-discord" id="discordicon"></i></a>
+        <h1>Portfolio</h1>
+        <div class="card" id="ubootcard">
+            <video autoplay muted loop controls>
+                <source src="videos/UbootAberDieSchraubeDrehtSichNicht.mp4" type="video/mp4">
+            </video>
+            <div class="beschreibung" id="ubootbeschreibung">
+                <p><u>"U-Boot, aber die Schraube dreht sich nicht"</u><b> by F. Kakuschke</b></p>
+            </div>
+        </div>
+        
+        <div class="card" id="codecard">
+            <pre><code>   public static int fib(int a){
+        if (a==1||a==2) return 1;
+        else return fib(a-1)+fib(a-2);
+    }</code></pre>
+            <div class="beschreibung" id="codebeschreibung">
+                <p><u>"Die Programmieraufgabe, die immer kommt wenn man rekursive Programmierung lernt"</u><b> by F. Kakuschke</b></p>
+            </div>
+        </div>
+
+        <div class="card" id="stimmecard">
+            <audio controls>
+                <source src="audio/Stimme.ogg" type="audio/ogg">
+            </audio>
+            <div class="beschreibung" id="stimmebeschreibung">
+                <p><u>"Stimme"</u><b> by F. Kakuschke</b></p>
+            </div>
+        </div>
+
+        <div class="card" id="zitatcard">
+            <q>Kannst du nachher Pizza machen?</q>
+            <div class="beschreibung" id="zitatbeschreibung">
+                <p><u>"Tiefgründiges Zitat"</u><b> by L. Philipp</b></p>
+            </div>
+        </div>        
+    </main>
+</body>

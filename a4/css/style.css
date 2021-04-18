@@ -1,0 +1,95 @@
+body {
+    background-image: url("../images/bg.png");
+    background-repeat: repeat;
+    font-family: verdana;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(20,20,20);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+  
+li {
+    float: right;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: rgb(0, 50, 0);
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+.aktuell {
+    background-color: green;
+}
+
+#discordicon {
+    opacity: 0.5;
+    color: black;
+    text-align: center;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    font-size: 50px;
+}
+
+#discordicon:hover {
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    #ubootcard video {
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    #kontaktformular {
+        width: 100%;
+    }
+
+    #profilkarte {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    #ubootcard video {
+        width: 800px;
+    }
+
+    .card {
+        width: 800px;
+        box-shadow: 5px 5px 5px rgb(0,0,0,0.5);
+    }
+
+    #kontaktformular {
+        width: 800px;
+        box-shadow: 5px 5px 5px rgb(0,0,0,0.5);
+    }
+
+    #profilkarte {
+        width: 800px;
+        box-shadow: 5px 5px 5px rgb(0,0,0,0.5);
+    }
+}
