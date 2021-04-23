@@ -7,8 +7,8 @@
     color:white;
 }
 
-#ubootcard video {
-    width: 600px;
+.ubootcard video {
+    width: 100%;
 }
 
 .beschreibung {
@@ -38,3 +38,22 @@
 #zitatcard .beschreibung {
     padding-top: 20px;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto 600px auto;
+    grid-template-rows: auto auto auto auto auto;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". Header ."
+      ". uboot ."
+      ". code ."
+      ". stimme ."
+      ". zitat .";
+}
+  
+.Header { grid-area: Header; }
+.ubootcard { grid-area: uboot; }
+.codecard { grid-area: code; }
+.stimmecard { grid-area: stimme; }
+.zitatcard { grid-area: zitat; }

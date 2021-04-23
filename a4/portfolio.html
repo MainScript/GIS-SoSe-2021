@@ -14,42 +14,47 @@
         <li><a href="profil.html">Profil</a></li>
     </ul><br><br>
     <main>
-        <h1>Portfolio - Felix Kakuschke</h1>
         <a href="https://discordapp.com/users/414510493177348097" target="_blank"><i class="fab fa-discord" id="discordicon"></i></a>
-        <h1>Portfolio</h1>
-        <div class="card" id="ubootcard">
-            <video autoplay muted loop controls>
-                <source src="videos/UbootAberDieSchraubeDrehtSichNicht.mp4" type="video/mp4">
-            </video>
-            <div class="beschreibung" id="ubootbeschreibung">
-                <p><u>"U-Boot, aber die Schraube dreht sich nicht"</u><b> by F. Kakuschke</b></p>
+        <div class="grid-container">
+            <div class="Header">
+                <h1>Portfolio - Felix Kakuschke</h1>
+                <h1>Portfolio</h1>
+            </div>
+            <div class="card ubootcard">
+                <video autoplay muted loop controls>
+                    <source src="videos/UbootAberDieSchraubeDrehtSichNicht.mp4" type="video/mp4">
+                </video>
+                <div class="beschreibung" id="ubootbeschreibung">
+                    <p><u>"U-Boot, aber die Schraube dreht sich nicht"</u><b> by F. Kakuschke</b></p>
+                </div>
+            </div>
+            
+            <div class="card codecard">
+                <pre><code>   public static int fib(int a){
+            if (a==1||a==2) return 1;
+            else return fib(a-1)+fib(a-2);
+        }</code></pre>
+                <div class="beschreibung" id="codebeschreibung">
+                    <p><u>"Die Programmieraufgabe, die immer kommt wenn man rekursive Programmierung lernt"</u><b> by F. Kakuschke</b></p>
+                </div>
+            </div>
+    
+            <div class="card stimmecard">
+                <audio controls>
+                    <source src="audio/Stimme.ogg" type="audio/ogg">
+                </audio>
+                <div class="beschreibung" id="stimmebeschreibung">
+                    <p><u>"Stimme"</u><b> by F. Kakuschke</b></p>
+                </div>
+            </div>
+    
+            <div class="card zitatcard">
+                <q>Kannst du nachher Pizza machen?</q>
+                <div class="beschreibung" id="zitatbeschreibung">
+                    <p><u>"Tiefgründiges Zitat"</u><b> by L. Philipp</b></p>
+                </div>
             </div>
         </div>
-        
-        <div class="card" id="codecard">
-            <pre><code>   public static int fib(int a){
-        if (a==1||a==2) return 1;
-        else return fib(a-1)+fib(a-2);
-    }</code></pre>
-            <div class="beschreibung" id="codebeschreibung">
-                <p><u>"Die Programmieraufgabe, die immer kommt wenn man rekursive Programmierung lernt"</u><b> by F. Kakuschke</b></p>
-            </div>
-        </div>
-
-        <div class="card" id="stimmecard">
-            <audio controls>
-                <source src="audio/Stimme.ogg" type="audio/ogg">
-            </audio>
-            <div class="beschreibung" id="stimmebeschreibung">
-                <p><u>"Stimme"</u><b> by F. Kakuschke</b></p>
-            </div>
-        </div>
-
-        <div class="card" id="zitatcard">
-            <q>Kannst du nachher Pizza machen?</q>
-            <div class="beschreibung" id="zitatbeschreibung">
-                <p><u>"Tiefgründiges Zitat"</u><b> by L. Philipp</b></p>
-            </div>
-        </div>        
+                
     </main>
 </body>

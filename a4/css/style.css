@@ -79,21 +79,21 @@ h1 {
 
 @media (min-width: 1024px) {
     #ubootcard video {
-        width: 800px;
+        width: 600px;
     }
 
     .card {
-        width: 800px;
+        width: 600px;
         box-shadow: 5px 5px 5px rgb(0,0,0,0.5);
     }
 
     #kontaktformular {
-        width: 800px;
+        width: 600px;
         box-shadow: 5px 5px 5px rgb(0,0,0,0.5);
     }
 
     #profilkarte {
-        width: 800px;
+        width: 600px;
         box-shadow: 5px 5px 5px rgb(0,0,0,0.5);
     }
 }

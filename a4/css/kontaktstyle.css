@@ -33,7 +33,6 @@ body {
 }
 
 #kontaktformular {
-    width: 600px;
     background-color: rgb(40, 40, 40);
     margin-left: auto;
     margin-right: auto;
@@ -87,3 +86,24 @@ body {
 #schauJoJo p {
     color: black;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto 600px auto;
+    grid-template-rows: auto auto auto auto;
+    gap: 10px 0px;
+    grid-template-areas:
+      ". Header ."
+      ". Adresse ."
+      ". JoJo ."
+      ". Kontaktformular .";
+  }
+  
+  .Adresse { grid-area: Adresse; }
+  
+  .Header { grid-area: Header; }
+  
+  #schauJoJo { grid-area: JoJo; }
+  
+  #kontaktformular { grid-area: Kontaktformular; }
+  
