@@ -11,8 +11,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var Aufgabe1;
-(function (Aufgabe1) {
+var Aufgabe2;
+(function (Aufgabe2) {
     function min() {
         var num = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -324,4 +324,4 @@ var Aufgabe1;
         out += Math.floor(Math.random() * 256) + ")";
         return out;
     }
-})(Aufgabe1 || (Aufgabe1 = {}));
+})(Aufgabe2 || (Aufgabe2 = {}));

@@ -1,4 +1,4 @@
-namespace Aufgabe1 {
+namespace Aufgabe2 {
     function min(...num: number[]): number {
         let currentmin: number = Infinity;
         for (let zahl of num){
