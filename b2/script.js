@@ -94,10 +94,7 @@ var Aufgabe1;
     }());
     var studentNEW = new Studierender("Gawr", "Gura", "14147", 9000, "MKB");
     studentNEW.showInfo();
-})(Aufgabe1 || (Aufgabe1 = {}));
-console.log("___________________________________________________");
-var Aufgabe2;
-(function (Aufgabe2) {
+    console.log("___________________________________________________");
     var testarray = [1, 2, 3, 4, 5];
     function backwards(inpArr) {
         var out = [];
@@ -155,10 +152,7 @@ var Aufgabe2;
     console.log(split(arr, 2, 0)); // Bonus c)
     console.log(split(arr, -1, 2)); // Bonus c)
     console.log(split(arr, 0, 7)); // Bonus c)
-})(Aufgabe2 || (Aufgabe2 = {}));
-/////////////////////////////////////////////////////////////////////////////////////////
-var Aufgabe3;
-(function (Aufgabe3) {
+    /////////////////////////////////////////////////////////////////////////////////////////
     window.addEventListener("load", function () {
         // a)
         var canvas1 = document.getElementById("canvas1");
@@ -330,4 +324,4 @@ var Aufgabe3;
         out += Math.floor(Math.random() * 256) + ")";
         return out;
     }
-})(Aufgabe3 || (Aufgabe3 = {}));
+})(Aufgabe1 || (Aufgabe1 = {}));

@@ -95,11 +95,9 @@ namespace Aufgabe1 {
 
     let studentNEW: Studierender = new Studierender("Gawr", "Gura", "14147", 9000, "MKB");
     studentNEW.showInfo();
-}
 
 console.log("___________________________________________________");
 
-namespace Aufgabe2 {
     var testarray: number[] = [1, 2, 3, 4, 5];
 
     function backwards(inpArr: number[]): number[]{
@@ -157,10 +155,10 @@ namespace Aufgabe2 {
     console.log(split(arr, 2, 0));     // Bonus c)
     console.log(split(arr, -1, 2));    // Bonus c)
     console.log(split(arr, 0, 7));     // Bonus c)
-}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
-namespace Aufgabe3{
+
     window.addEventListener("load", function(): void{
         // a)
         let canvas1: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("canvas1");
