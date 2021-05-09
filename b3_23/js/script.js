@@ -12,6 +12,7 @@ var b3Aufgabe23;
     let idStrings = ["topOptions", "midOptions", "botOptions"];
     let namestrings = ["top", "mid", "bot"];
     let valuestrings = ["red", "green", "blue"];
+    ///////////////////////////////////////////////////
     let partlist = [];
     class Part {
         constructor(_options, _position, _parent) {

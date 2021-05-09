@@ -12,7 +12,9 @@ namespace b3Aufgabe23 {
     let idStrings: string[] = ["topOptions", "midOptions", "botOptions"];
     let namestrings: string[] = ["top", "mid", "bot"];
     let valuestrings: string[] = ["red", "green", "blue"];
-    
+    ///////////////////////////////////////////////////
+
+
     let partlist: Part[] = [];
 
     class Part {
