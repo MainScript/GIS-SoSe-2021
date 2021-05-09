@@ -1,5 +1,6 @@
+"use strict";
 function a1() {
-    var x = "Alles";
+    let x = "Alles";
     console.log(x);
     func1();
     console.log("Logo!");
@@ -27,3 +28,4 @@ a2();
 function func2() {
     console.log("Alles");
 }
+//# sourceMappingURL=script1.js.map

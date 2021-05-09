@@ -1,6 +1,7 @@
+"use strict";
 //Aufgabe 2:
 function b2() {
-    var i = 9;
+    let i = 9;
     do {
         console.log(i);
         i = i - 1;
@@ -11,3 +12,4 @@ b2();
 //Zuerst wird die Zahl i auf 9 gesetzt.
 //in der Schleife wird dann i ausgegeben und um 1 verringert
 //Dies wird solange getan, bis i nicht mehr > 0 ist
+//# sourceMappingURL=script2.js.map

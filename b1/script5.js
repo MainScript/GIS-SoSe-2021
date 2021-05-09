@@ -1,3 +1,4 @@
+"use strict";
 function multiply(a, b) {
     return a * b;
 }
@@ -13,8 +14,8 @@ function max(a, b) {
     }
 }
 function oneToHundred() {
-    var out = 0;
-    var i = 0;
+    let out = 0;
+    let i = 0;
     while (i <= 100) {
         out += i;
         i++;
@@ -23,7 +24,7 @@ function oneToHundred() {
     console.log(out);
 }
 function randomDigits() {
-    for (var i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
         console.log(Math.floor(Math.random() * 100));
     }
 }
@@ -32,15 +33,15 @@ function factorial(n) {
         return 1;
     }
     else {
-        var out = 1;
-        for (var i = 2; i <= n; i++) {
+        let out = 1;
+        for (let i = 2; i <= n; i++) {
             out *= i;
         }
         return out;
     }
 }
 function leapyears() {
-    var year = 1900;
+    let year = 1900;
     while (year < 2021) {
         if (year % 4 == 0 && year % 100 != 0 && year % 400 == 0) {
             console.log(year);
@@ -48,3 +49,4 @@ function leapyears() {
         year++;
     }
 }
+//# sourceMappingURL=script5.js.map

@@ -1,14 +1,15 @@
+"use strict";
 function hash() {
-    for (var i = 1; i <= 7; i++) {
-        var out = "";
-        for (var k = 1; k <= i; k++) {
+    for (let i = 1; i <= 7; i++) {
+        let out = "";
+        for (let k = 1; k <= i; k++) {
             out += "#";
         }
         console.log(out);
     }
 }
 function fizzBuzz() {
-    for (var i = 1; i < 100; i++) {
+    for (let i = 1; i < 100; i++) {
         if (i % 3 == 0 && i % 5 != 0) {
             console.log("Fizz");
         }
@@ -24,10 +25,10 @@ function fizzBuzz() {
     }
 }
 function schach(height, width) {
-    var out = "";
-    for (var i = 0; i < height; i++) {
+    let out = "";
+    for (let i = 0; i < height; i++) {
         if (i % 2 == 0) {
-            for (var k = 0; k < width; k++) {
+            for (let k = 0; k < width; k++) {
                 if (k % 2 == 0) {
                     out += " ";
                 }
@@ -37,7 +38,7 @@ function schach(height, width) {
             }
         }
         else {
-            for (var k = 0; k < width; k++) {
+            for (let k = 0; k < width; k++) {
                 if (k % 2 == 0) {
                     out += "#";
                 }
@@ -50,3 +51,4 @@ function schach(height, width) {
     }
     console.log(out);
 }
+//# sourceMappingURL=script6.js.map

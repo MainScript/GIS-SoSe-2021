@@ -1,5 +1,6 @@
+"use strict";
 // Aufgabe 4:
-var x = "Hallo";
+let x = "Hallo";
 console.log(x);
 func3(x);
 console.log(x);
@@ -11,7 +12,7 @@ function func3(y) {
     console.log(y);
 }
 function func4() {
-    var x = "Blubb";
+    let x = "Blubb";
     console.log(x);
 }
 function func5() {
@@ -20,3 +21,4 @@ function func5() {
 // Ausgabe: Hallo Bla Hallo Blubb Test Hallo
 // Funktionen ähneln Variablen, indem sie auch einen Typ haben (Rückgabewert im Falle von Funktionen)
 // Sie unterscheiden sich, da Funktionen Code ausführen können und einen Wert zurückgeben können und Variablen nur einen Wert haben
+//# sourceMappingURL=script4.js.map
