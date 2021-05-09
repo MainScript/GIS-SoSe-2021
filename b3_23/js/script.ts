@@ -4,25 +4,39 @@
 namespace b3Aufgabe23 {
     // Dieser Teil wäre eigentlich in data.ts
     let optionData: string[][] = [
-        ["test"],["test", "test"]
+        ["img/top_red.png", "img/top_green.png", "img/top_blue.png"],
+        ["img/mid_red.png", "img/mid_green.png", "img/mid_blue.png"],
+        ["img/bot_red.png", "img/bot_green.png", "img/bot_blue.png"]
     ];
+
+    let idStrings: string[] = ["topOptions", "midOptions", "botOptions"];
+    let namestrings: string[] = ["top", "mid", "bot"];
+    let valuestrings: string[] = ["red", "green", "blue"];
     
+    let partlist: Part[] = [];
+
     class Part {
-        position: number[];
         possibleoptions: string[];
         chosenoption: string;
-        constructor(_x: number, _y: number, _options: string[]){
+        image: HTMLImageElement;
+        position: string;
+        parent: HTMLDivElement;
+
+        constructor(_options: string[], _position: string, _parent: HTMLDivElement){
             this.possibleoptions = _options;
-            this.position[0] = _x;
-            this.position[1] = _y;
+            this.image = document.createElement("img");
+            this.image.src = "";
+            this.position = _position;
+            this.parent = _parent;
+            this.parent.appendChild(this.image);
+            this.image.id = this.position;
+            this.image.classList.add("previewimg");
         }
 
-        choose(_ch: number){
+        choose(_ch: number, _position: number){
             this.chosenoption = this.possibleoptions[_ch];
-        }
-
-        addOption(_opt: string){
-            this.possibleoptions.push(_opt);
+            this.image.src = this.chosenoption;
+            this.parent.replaceChild(this.image, this.parent.childNodes[_position]);
         }
     }
 
@@ -32,5 +46,82 @@ namespace b3Aufgabe23 {
         bottom: Part;
     }
 
-    
+    window.addEventListener("load", addElements);
+
+    function addElements(){
+        let body = document.body;
+        let h1 = document.createElement("h1");
+        h1.innerHTML = "BUILD YOUR ROCKET!";
+        body.appendChild(h1);
+
+        let previewDiv = document.createElement("div");
+        previewDiv.id = "preview";
+
+        let topPart: Part = new Part(optionData[0], "top", previewDiv);
+        let randomTop = Math.floor(Math.random()*optionData[0].length);
+        topPart.choose(randomTop, 0);
+        partlist.push(topPart);
+
+        let midPart: Part = new Part(optionData[1], "mid", previewDiv);
+        let randomMid = Math.floor(Math.random()*optionData[1].length);
+        midPart.choose(randomMid, 1);
+        partlist.push(midPart);
+
+        let botPart: Part = new Part(optionData[2], "bot", previewDiv);
+        let randomBot = Math.floor(Math.random()*optionData[2].length);
+        botPart.choose(randomBot, 2);
+        partlist.push(botPart);
+
+        body.appendChild(previewDiv);
+
+        body.appendChild(document.createElement("br"));
+
+        let optionDiv = document.createElement("div");
+        optionDiv.id = "options";
+        let randomNumbers: number[] = [randomTop, randomMid, randomBot];
+
+        for (let i: number = 0; i < optionData.length; i++){
+            let optDiv = document.createElement("div");
+            optDiv.id = idStrings[i];
+            for (let k: number = 0; k < optionData[i].length; k++){
+                let optLabel = document.createElement("label");
+                optLabel.classList.add("radio-inline");
+
+                let optInp = document.createElement("input");
+                optInp.type = "radio";
+                optInp.name = namestrings[i];
+                optInp.value = valuestrings[k];
+                optInp.id = namestrings[i]+"_"+valuestrings[k];
+                if(randomNumbers[i] == k){
+                    optInp.checked = true;
+                }
+                optInp.addEventListener("change", function(): void{
+                    partlist[i].choose(k, i);
+                    console.log(this.id);
+                });
+                optLabel.appendChild(optInp);
+
+                let optImg = document.createElement("img");
+                optImg.src = optionData[i][k];
+                optImg.classList.add("radioimg");
+                optLabel.appendChild(optImg);
+
+                optDiv.appendChild(optLabel);
+            }
+            body.appendChild(optDiv);
+        }
+
+        body.appendChild(document.createElement("br"));
+
+        let finishB = document.createElement("button");
+        finishB.id = "finishB";
+        finishB.innerHTML = "FINISH!";
+        finishB.addEventListener("click", outputChoice);
+        body.appendChild(finishB);
+    }
+
+    function outputChoice(){
+        let result: Bild = {top: partlist[0], mid: partlist[1], bottom: partlist[2]};
+        console.log("Top: " + result.top.chosenoption + " Mid: " + result.mid.chosenoption + " Bottom: " + result.bottom.chosenoption);
+    }
 }

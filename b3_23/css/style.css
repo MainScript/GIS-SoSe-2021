@@ -3,3 +3,36 @@ body {
     color: white;
     font-family: sans-serif;
 }
+
+#preview {
+    position: relative;
+    width: 250px;
+    height: 450px;
+}
+
+.previewimg {
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+#top {
+    top: 0px;
+}
+
+#mid {
+    top: 150px;
+}
+
+#bot {
+    top: 300px;
+}
+
+.radioimg {
+    width: 50px;
+}
+
+#finishB {
+    color: black;
+    font-weight: bold;
+}
