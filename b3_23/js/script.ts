@@ -24,7 +24,7 @@ namespace b3Aufgabe23 {
         position: string;
         parent: HTMLDivElement;
 
-        constructor(_options: string[], _position: string, _parent: HTMLDivElement){
+        constructor(_options: string[], _position: string, _parent: HTMLDivElement) {
             this.possibleoptions = _options;
             this.image = document.createElement("img");
             this.image.src = "";
@@ -35,14 +35,14 @@ namespace b3Aufgabe23 {
             this.image.classList.add("previewimg");
         }
 
-        choose(_ch: number, _position: number){
+        choose(_ch: number, _position: number): void {
             this.chosenoption = this.possibleoptions[_ch];
             this.image.src = this.chosenoption;
             this.parent.replaceChild(this.image, this.parent.childNodes[_position]);
         }
     }
 
-    interface Bild{
+    interface Bild {
         top: Part;
         mid: Part;
         bottom: Part;
@@ -50,27 +50,27 @@ namespace b3Aufgabe23 {
 
     window.addEventListener("load", addElements);
 
-    function addElements(){
-        let body = document.body;
-        let h1 = document.createElement("h1");
+    function addElements(): void {
+        let body: HTMLBodyElement = <HTMLBodyElement>document.body;
+        let h1: HTMLHeadingElement = document.createElement("h1");
         h1.innerHTML = "BUILD YOUR ROCKET!";
         body.appendChild(h1);
 
-        let previewDiv = document.createElement("div");
+        let previewDiv: HTMLDivElement = document.createElement("div");
         previewDiv.id = "preview";
 
         let topPart: Part = new Part(optionData[0], "top", previewDiv);
-        let randomTop = Math.floor(Math.random()*optionData[0].length);
+        let randomTop: number = Math.floor(Math.random() * optionData[0].length);
         topPart.choose(randomTop, 0);
         partlist.push(topPart);
 
         let midPart: Part = new Part(optionData[1], "mid", previewDiv);
-        let randomMid = Math.floor(Math.random()*optionData[1].length);
+        let randomMid: number = Math.floor(Math.random() * optionData[1].length);
         midPart.choose(randomMid, 1);
         partlist.push(midPart);
 
         let botPart: Part = new Part(optionData[2], "bot", previewDiv);
-        let randomBot = Math.floor(Math.random()*optionData[2].length);
+        let randomBot: number = Math.floor(Math.random() * optionData[2].length);
         botPart.choose(randomBot, 2);
         partlist.push(botPart);
 
@@ -78,31 +78,31 @@ namespace b3Aufgabe23 {
 
         body.appendChild(document.createElement("br"));
 
-        let optionDiv = document.createElement("div");
+        let optionDiv: HTMLDivElement = document.createElement("div");
         optionDiv.id = "options";
         let randomNumbers: number[] = [randomTop, randomMid, randomBot];
 
-        for (let i: number = 0; i < optionData.length; i++){
-            let optDiv = document.createElement("div");
+        for (let i: number = 0; i < optionData.length; i++) {
+            let optDiv: HTMLDivElement = document.createElement("div");
             optDiv.id = idStrings[i];
-            for (let k: number = 0; k < optionData[i].length; k++){
-                let optLabel = document.createElement("label");
+            for (let k: number = 0; k < optionData[i].length; k++) {
+                let optLabel: HTMLLabelElement = document.createElement("label");
                 optLabel.classList.add("radio-inline");
 
-                let optInp = document.createElement("input");
+                let optInp: HTMLInputElement = document.createElement("input");
                 optInp.type = "radio";
                 optInp.name = namestrings[i];
                 optInp.value = valuestrings[k];
-                optInp.id = namestrings[i]+"_"+valuestrings[k];
-                if(randomNumbers[i] == k){
+                optInp.id = namestrings[i] + "_" + valuestrings[k];
+                if (randomNumbers[i] == k) {
                     optInp.checked = true;
                 }
-                optInp.addEventListener("change", function(): void{
+                optInp.addEventListener("change", function(): void {
                     partlist[i].choose(k, i);
                 });
                 optLabel.appendChild(optInp);
 
-                let optImg = document.createElement("img");
+                let optImg: HTMLImageElement = document.createElement("img");
                 optImg.src = optionData[i][k];
                 optImg.classList.add("radioimg");
                 optLabel.appendChild(optImg);
@@ -114,14 +114,14 @@ namespace b3Aufgabe23 {
 
         body.appendChild(document.createElement("br"));
 
-        let finishB = document.createElement("button");
+        let finishB: HTMLButtonElement = document.createElement("button");
         finishB.id = "finishB";
         finishB.innerHTML = "FINISH!";
         finishB.addEventListener("click", outputChoice);
         body.appendChild(finishB);
     }
 
-    function outputChoice(){
+    function outputChoice(): void {
         let result: Bild = {top: partlist[0], mid: partlist[1], bottom: partlist[2]};
         console.log(result);
     }
