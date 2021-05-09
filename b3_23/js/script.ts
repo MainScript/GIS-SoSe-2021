@@ -97,7 +97,6 @@ namespace b3Aufgabe23 {
                 }
                 optInp.addEventListener("change", function(): void{
                     partlist[i].choose(k, i);
-                    console.log(this.id);
                 });
                 optLabel.appendChild(optInp);
 
@@ -122,6 +121,6 @@ namespace b3Aufgabe23 {
 
     function outputChoice(){
         let result: Bild = {top: partlist[0], mid: partlist[1], bottom: partlist[2]};
-        console.log("Top: " + result.top.chosenoption + " Mid: " + result.mid.chosenoption + " Bottom: " + result.bottom.chosenoption);
+        console.log(result);
     }
 }

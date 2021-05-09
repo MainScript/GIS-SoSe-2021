@@ -71,7 +71,6 @@ var b3Aufgabe23;
                 }
                 optInp.addEventListener("change", function () {
                     partlist[i].choose(k, i);
-                    console.log(this.id);
                 });
                 optLabel.appendChild(optInp);
                 let optImg = document.createElement("img");
@@ -91,7 +90,7 @@ var b3Aufgabe23;
     }
     function outputChoice() {
         let result = { top: partlist[0], mid: partlist[1], bottom: partlist[2] };
-        console.log("Top: " + result.top.chosenoption + " Mid: " + result.mid.chosenoption + " Bottom: " + result.bottom.chosenoption);
+        console.log(result);
     }
 })(b3Aufgabe23 || (b3Aufgabe23 = {}));
 //# sourceMappingURL=script.js.map
