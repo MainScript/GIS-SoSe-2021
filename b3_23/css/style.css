@@ -7,7 +7,7 @@ body {
 #preview {
     position: relative;
     width: 250px;
-    height: 450px;
+    height: 150px;
 }
 
 .previewimg {
@@ -16,23 +16,22 @@ body {
     left: 0;
 }
 
-#top {
+#part {
     top: 0px;
 }
 
-#mid {
-    top: 150px;
-}
-
-#bot {
-    top: 300px;
-}
-
 .radioimg {
-    width: 50px;
+    width: 150px;
 }
 
 #finishB {
     color: black;
     font-weight: bold;
+}
+
+[type=radio] {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    position: absolute;
 }
