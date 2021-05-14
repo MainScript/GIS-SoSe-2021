@@ -51,7 +51,7 @@ namespace b4 {
         let partDiv: HTMLDivElement = document.createElement("div");
         partDiv.id = "part_" + position;
         let h1: HTMLHeadingElement = document.createElement("h1");
-        h1.innerHTML = "BUILD YOUR ROCKET! - " + namestrings[position].toUpperCase + " PART";
+        h1.innerHTML = "BUILD YOUR ROCKET! - " + namestrings[position].toUpperCase() + " PART";
         partDiv.appendChild(h1);
 
         let h2: HTMLHeadingElement = document.createElement("h2");

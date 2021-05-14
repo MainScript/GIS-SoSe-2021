@@ -27,7 +27,7 @@ var b4;
         let partDiv = document.createElement("div");
         partDiv.id = "part_" + position;
         let h1 = document.createElement("h1");
-        h1.innerHTML = "BUILD YOUR ROCKET! - " + namestrings[position].toUpperCase + " PART";
+        h1.innerHTML = "BUILD YOUR ROCKET! - " + namestrings[position].toUpperCase() + " PART";
         partDiv.appendChild(h1);
         let h2 = document.createElement("h2");
         h2.innerHTML = "PREVIEW:";
