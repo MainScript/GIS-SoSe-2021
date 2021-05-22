@@ -158,7 +158,7 @@ namespace b5 {
     }
 
     async function getData(): Promise<void> {
-        let response: Response = await fetch("./js/data.json");
+        let response: Response = await fetch("https://mainscript.github.io/GIS-SoSe-2021/b5/js/data.json");
         optionJSON = await response.text();
     }
 }

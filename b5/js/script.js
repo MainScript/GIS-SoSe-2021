@@ -118,7 +118,7 @@ var b5;
         }
     }
     async function getData() {
-        let response = await fetch("./js/data.json");
+        let response = await fetch("https://mainscript.github.io/GIS-SoSe-2021/b5/js/data.json");
         optionJSON = await response.text();
     }
 })(b5 || (b5 = {}));
