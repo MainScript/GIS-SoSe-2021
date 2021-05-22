@@ -20,8 +20,10 @@ namespace b5 {
         answerP.classList.add("antwort");
         if (serverAntwort.message) {
             answerP.innerText = "Der Server sagt: " + serverAntwort.message;
+            answerP.classList.add("positiv");
         } else if (serverAntwort.error) {
             answerP.innerText = "Fehler: " + serverAntwort.error;
+            answerP.classList.add("negativ");
         }
         body.appendChild(answerP);
 

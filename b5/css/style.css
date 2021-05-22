@@ -38,6 +38,13 @@ body {
 }
 
 .antwort {
-    color: red;
     font-weight: bold;
+}
+
+.positiv {
+    color: lightgreen;
+}
+
+.negativ {
+    color:red;
 }
