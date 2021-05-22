@@ -1,5 +1,13 @@
-namespace b4 {
-    window.addEventListener("load", addElements);
+namespace b5 {
+    let serverAntwort: Antwort;
+    sendData("https://gis-communication.herokuapp.com/").then(function(): void {
+        addElements();
+    });
+
+    interface Antwort {
+        message: string;
+        error: string;
+    }
 
     function addElements(): void {
         let bild: Bild = JSON.parse(sessionStorage.getItem("resultJSON"));
@@ -7,6 +15,16 @@ namespace b4 {
         let h1: HTMLHeadingElement = document.createElement("h1");
         h1.innerHTML = "BUILD YOUR ROCKET! - RESULT";
         body.appendChild(h1);
+
+        let answerP: HTMLParagraphElement = document.createElement("p");
+        answerP.classList.add("antwort");
+        if (serverAntwort.message) {
+            answerP.innerText = "Der Server sagt: " + serverAntwort.message;
+        } else if (serverAntwort.error) {
+            answerP.innerText = "Fehler: " + serverAntwort.error;
+        }
+        body.appendChild(answerP);
+
         let resultDiv: HTMLDivElement = document.createElement("div");
         resultDiv.classList.add("result");
 
@@ -30,5 +48,13 @@ namespace b4 {
         resultDiv.appendChild(botImg);
 
         body.appendChild(resultDiv);
+    }
+
+    async function sendData(_url: RequestInfo): Promise<void> {
+        let outpJSON: Bild = JSON.parse(sessionStorage.getItem("resultJSON"));
+        let outputString: string = "top=" + outpJSON.top.source + "&mid=" + outpJSON.mid.source + "&bot=" + outpJSON.bot.source;
+        _url = _url + "?" + outputString;
+        let response: Response = await fetch(_url);
+        serverAntwort = await response.json();
     }
 }

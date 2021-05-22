@@ -1,13 +1,25 @@
 "use strict";
-var b4;
-(function (b4) {
-    window.addEventListener("load", addElements);
+var b5;
+(function (b5) {
+    let serverAntwort;
+    sendData("https://gis-communication.herokuapp.com/").then(function () {
+        addElements();
+    });
     function addElements() {
         let bild = JSON.parse(sessionStorage.getItem("resultJSON"));
         let body = document.body;
         let h1 = document.createElement("h1");
         h1.innerHTML = "BUILD YOUR ROCKET! - RESULT";
         body.appendChild(h1);
+        let answerP = document.createElement("p");
+        answerP.classList.add("antwort");
+        if (serverAntwort.message) {
+            answerP.innerText = "Der Server sagt: " + serverAntwort.message;
+        }
+        else if (serverAntwort.error) {
+            answerP.innerText = "Fehler: " + serverAntwort.error;
+        }
+        body.appendChild(answerP);
         let resultDiv = document.createElement("div");
         resultDiv.classList.add("result");
         let topImg = document.createElement("img");
@@ -27,5 +39,12 @@ var b4;
         resultDiv.appendChild(botImg);
         body.appendChild(resultDiv);
     }
-})(b4 || (b4 = {}));
+    async function sendData(_url) {
+        let outpJSON = JSON.parse(sessionStorage.getItem("resultJSON"));
+        let outputString = "top=" + outpJSON.top.source + "&mid=" + outpJSON.mid.source + "&bot=" + outpJSON.bot.source;
+        _url = _url + "?" + outputString;
+        let response = await fetch(_url);
+        serverAntwort = await response.json();
+    }
+})(b5 || (b5 = {}));
 //# sourceMappingURL=scriptResult.js.map
