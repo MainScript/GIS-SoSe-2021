@@ -27,12 +27,12 @@ export namespace P_3_2Server {
         let outHandler: Handler = {vorname: qdata.vorname.toString(), nachname: qdata.nachname.toString(), farbe: qdata.farbe.toString()};
 
         let respText: string = "";
+        console.log(q.pathname);
         if (q.pathname == "/html") {
             respText = queryToHTML(outHandler);
         } else if (q.pathname == "/json") {
             respText = JSON.stringify(outHandler);
         }
-        //console.log(respText);
         _response.write(respText);
         _response.end();
     }
