@@ -1,6 +1,6 @@
-namespace P3_1 {
+namespace P3_2_HTML {
     let formData: FormData;
-    let url: string = "https://mainscript-gis.herokuapp.com/";
+    let url: string = "http://localhost:8100/html";
 
     let submitB: HTMLButtonElement = <HTMLButtonElement>document.getElementById("submit");
     submitB.addEventListener("click", handleSubmit);
@@ -17,10 +17,7 @@ namespace P3_1 {
     }
 
     function addAnswer(_ans: string): void {
-        let ansH: HTMLHeadingElement = document.createElement("h2");
-
-        ansH.innerText = "Antwort des Servers: " + _ans;
-
-        document.body.appendChild(ansH);
+        let fragment: DocumentFragment = document.createRange().createContextualFragment(_ans);
+        document.body.appendChild(fragment);
     }
 }

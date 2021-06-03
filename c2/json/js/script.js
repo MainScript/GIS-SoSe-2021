@@ -1,8 +1,8 @@
 "use strict";
-var P3_1;
-(function (P3_1) {
+var P3_2_JSON;
+(function (P3_2_JSON) {
     let formData;
-    let url = "https://mainscript-gis.herokuapp.com/";
+    let url = "http://localhost:8100/json";
     let submitB = document.getElementById("submit");
     submitB.addEventListener("click", handleSubmit);
     async function handleSubmit() {
@@ -11,13 +11,8 @@ var P3_1;
         url += "?" + query.toString();
         let response = await fetch(url, { method: "get" });
         let responseString = await response.text();
-        console.log("Antwort des Servers: " + responseString);
-        addAnswer(responseString);
+        let responseJSON = JSON.parse(responseString);
+        console.log(responseJSON);
     }
-    function addAnswer(_ans) {
-        let ansH = document.createElement("h2");
-        ansH.innerText = "Antwort des Servers: " + _ans;
-        document.body.appendChild(ansH);
-    }
-})(P3_1 || (P3_1 = {}));
+})(P3_2_JSON || (P3_2_JSON = {}));
 //# sourceMappingURL=script.js.map
