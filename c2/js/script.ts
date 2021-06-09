@@ -1,6 +1,6 @@
 namespace P3_2 {
     let formData: FormData;
-    let url: string = "http://localhost:8100/";
+    let url: string = "https://mainscript-gis.herokuapp.com/";
     let type: string = "";
     
     let htmlSubmit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("htmlsubmit");
@@ -33,6 +33,6 @@ namespace P3_2 {
             let frag: DocumentFragment = document.createRange().createContextualFragment(responseString);
             responseDIV.appendChild(frag);
         }
-        url = "http://localhost:8100/";
+        url = "https://mainscript-gis.herokuapp.com/";
     }
 }

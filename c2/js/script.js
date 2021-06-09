@@ -2,7 +2,7 @@
 var P3_2;
 (function (P3_2) {
     let formData;
-    let url = "http://localhost:8100/";
+    let url = "https://mainscript-gis.herokuapp.com/";
     let type = "";
     let htmlSubmit = document.getElementById("htmlsubmit");
     let jsonSubmit = document.getElementById("jsonsubmit");
@@ -31,7 +31,7 @@ var P3_2;
             let frag = document.createRange().createContextualFragment(responseString);
             responseDIV.appendChild(frag);
         }
-        url = "http://localhost:8100/";
+        url = "https://mainscript-gis.herokuapp.com/";
     }
 })(P3_2 || (P3_2 = {}));
 //# sourceMappingURL=script.js.map
