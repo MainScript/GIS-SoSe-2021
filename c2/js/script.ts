@@ -7,16 +7,19 @@ namespace P3_2 {
     let jsonSubmit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("jsonsubmit");
     let responseDIV: HTMLDivElement = <HTMLDivElement>document.getElementById("responseDIV");
 
-    jsonSubmit.addEventListener("click", function(): void {
+    jsonSubmit.addEventListener("click", jsonSubmitFunc);
+
+    htmlSubmit.addEventListener("click", htmlSubmitFunc);
+
+    function jsonSubmitFunc(): void {
         type = "json";
         handleSubmit();
-    });
+    }
 
-    htmlSubmit.addEventListener("click", function(): void {
-        type = "html";
+    function htmlSubmitFunc(): void {
+        type = "json";
         handleSubmit();
-    });
-
+    }
 
     async function handleSubmit(): Promise<void> {
         formData = new FormData(document.forms[0]);

@@ -7,14 +7,16 @@ var P3_2;
     let htmlSubmit = document.getElementById("htmlsubmit");
     let jsonSubmit = document.getElementById("jsonsubmit");
     let responseDIV = document.getElementById("responseDIV");
-    jsonSubmit.addEventListener("click", function () {
+    jsonSubmit.addEventListener("click", jsonSubmitFunc);
+    htmlSubmit.addEventListener("click", htmlSubmitFunc);
+    function jsonSubmitFunc() {
         type = "json";
         handleSubmit();
-    });
-    htmlSubmit.addEventListener("click", function () {
-        type = "html";
+    }
+    function htmlSubmitFunc() {
+        type = "json";
         handleSubmit();
-    });
+    }
     async function handleSubmit() {
         formData = new FormData(document.forms[0]);
         url += type;
