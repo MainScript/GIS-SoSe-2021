@@ -17,7 +17,7 @@ namespace P3_2 {
     }
 
     function htmlSubmitFunc(): void {
-        type = "json";
+        type = "html";
         handleSubmit();
     }
 
