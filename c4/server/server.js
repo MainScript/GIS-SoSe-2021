@@ -49,7 +49,8 @@ var c4_server;
     }
     async function readFromDB() {
         let collection = await connectToDB(dbURL);
-        let out = await collection.find().toArray();
+        let outCursor = await collection.find();
+        let out = await outCursor.toArray();
         return out;
     }
 })(c4_server = exports.c4_server || (exports.c4_server = {}));

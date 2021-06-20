@@ -54,7 +54,8 @@ export namespace c4_server {
 
     async function readFromDB(): Promise<Handler[]> {
         let collection: Mongo.Collection = await connectToDB(dbURL);
-        let out: Handler[] = await collection.find().toArray();
+        let outCursor: Mongo.Cursor = await collection.find();
+        let out: Handler[] = await outCursor.toArray();
         return out;
     }
 
