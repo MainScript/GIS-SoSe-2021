@@ -19,8 +19,6 @@ namespace c4 {
 
     async function handleRead(): Promise<void> {
         let url: string = "https://mainscript-gis.herokuapp.com/read";
-        let q: URLSearchParams = new URLSearchParams(<any>inputForm);
-        url += "?" + q.toString();
         let outRes: Response = await fetch(url);
         let out: string = await outRes.text();
         console.log(out);

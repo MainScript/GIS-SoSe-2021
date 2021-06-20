@@ -18,8 +18,6 @@ var c4;
     }
     async function handleRead() {
         let url = "https://mainscript-gis.herokuapp.com/read";
-        let q = new URLSearchParams(inputForm);
-        url += "?" + q.toString();
         let outRes = await fetch(url);
         let out = await outRes.text();
         console.log(out);
