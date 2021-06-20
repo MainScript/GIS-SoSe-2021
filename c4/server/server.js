@@ -23,8 +23,8 @@ var c4_server;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         let q = Url.parse(_request.url, true);
         let qdata = q.query;
-        let outHandler = { vorname: qdata.foreName.toString(), nachname: qdata.surName.toString(), farbe: qdata.inpCol.toString(), datum: qdata.birthDate.toString() };
         if (q.pathname == "/write") {
+            let outHandler = { vorname: qdata.foreName.toString(), nachname: qdata.surName.toString(), farbe: qdata.inpCol.toString(), datum: qdata.birthDate.toString() };
             let out = await writeToDB(outHandler);
             _response.write(out);
         }

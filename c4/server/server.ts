@@ -24,9 +24,9 @@ export namespace c4_server {
         _response.setHeader("Access-Control-Allow-Origin", "*");
         let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
         let qdata: ParsedUrlQuery = q.query;
-        let outHandler: Handler = {vorname: qdata.foreName.toString(), nachname: qdata.surName.toString(), farbe: qdata.inpCol.toString(), datum: qdata.birthDate.toString()};
-
+        
         if (q.pathname == "/write") {
+            let outHandler: Handler = {vorname: qdata.foreName.toString(), nachname: qdata.surName.toString(), farbe: qdata.inpCol.toString(), datum: qdata.birthDate.toString()};
             let out: string = await writeToDB(outHandler);
             _response.write(out);
         } else if (q.pathname == "/read") {
