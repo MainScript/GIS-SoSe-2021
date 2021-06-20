@@ -22,6 +22,33 @@ namespace c4 {
         let outRes: Response = await fetch(url);
         let out: string = await outRes.text();
         console.log(out);
+        let outArray: ReadHandler[] = JSON.parse(out);
         console.log(JSON.parse(out));
+        document.getElementById("outputDiv").innerHTML = "";
+        for (let entry of outArray) {
+            let entrydiv: HTMLDivElement = document.createElement("div");
+            entrydiv.id = entry._id;
+            let vornameP: HTMLParagraphElement = document.createElement("p");
+            vornameP.innerText = "Vorname: " + entry.vorname;
+            let nachnameP: HTMLParagraphElement = document.createElement("p");
+            nachnameP.innerText = "Nachname: " + entry.nachname;
+            let farbeP: HTMLParagraphElement = document.createElement("p");
+            farbeP.innerText = "Lieblingsfarbe: " + entry.farbe;
+            let datumP: HTMLParagraphElement = document.createElement("p");
+            datumP.innerText = "Geburtstag: " + entry.datum;
+            entrydiv.appendChild(vornameP);
+            entrydiv.appendChild(nachnameP);
+            entrydiv.appendChild(farbeP);
+            entrydiv.appendChild(datumP);
+            document.getElementById("outputDiv").appendChild(entrydiv);
+        }
+    }
+
+    interface ReadHandler {
+        vorname: string;
+        nachname: string;
+        farbe: string;
+        datum: string;
+        _id: string;
     }
 }

@@ -21,7 +21,26 @@ var c4;
         let outRes = await fetch(url);
         let out = await outRes.text();
         console.log(out);
+        let outArray = JSON.parse(out);
         console.log(JSON.parse(out));
+        document.getElementById("outputDiv").innerHTML = "";
+        for (let entry of outArray) {
+            let entrydiv = document.createElement("div");
+            entrydiv.id = entry._id;
+            let vornameP = document.createElement("p");
+            vornameP.innerText = "Vorname: " + entry.vorname;
+            let nachnameP = document.createElement("p");
+            nachnameP.innerText = "Nachname: " + entry.nachname;
+            let farbeP = document.createElement("p");
+            farbeP.innerText = "Lieblingsfarbe: " + entry.farbe;
+            let datumP = document.createElement("p");
+            datumP.innerText = "Geburtstag: " + entry.datum;
+            entrydiv.appendChild(vornameP);
+            entrydiv.appendChild(nachnameP);
+            entrydiv.appendChild(farbeP);
+            entrydiv.appendChild(datumP);
+            document.getElementById("outputDiv").appendChild(entrydiv);
+        }
     }
 })(c4 || (c4 = {}));
 //# sourceMappingURL=script.js.map
