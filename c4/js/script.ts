@@ -34,12 +34,16 @@ namespace c4 {
             nachnameP.innerText = "Nachname: " + entry.nachname;
             let farbeP: HTMLParagraphElement = document.createElement("p");
             farbeP.innerText = "Lieblingsfarbe: " + entry.farbe;
+            farbeP.style.color = entry.farbe;
             let datumP: HTMLParagraphElement = document.createElement("p");
             datumP.innerText = "Geburtstag: " + entry.datum;
+            let trennungsP: HTMLParagraphElement = document.createElement("p");
+            trennungsP.innerText = "--------------------";
             entrydiv.appendChild(vornameP);
             entrydiv.appendChild(nachnameP);
             entrydiv.appendChild(farbeP);
             entrydiv.appendChild(datumP);
+            entrydiv.appendChild(trennungsP);
             document.getElementById("outputDiv").appendChild(entrydiv);
         }
     }

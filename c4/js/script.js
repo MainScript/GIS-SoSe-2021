@@ -33,12 +33,16 @@ var c4;
             nachnameP.innerText = "Nachname: " + entry.nachname;
             let farbeP = document.createElement("p");
             farbeP.innerText = "Lieblingsfarbe: " + entry.farbe;
+            farbeP.style.color = entry.farbe;
             let datumP = document.createElement("p");
             datumP.innerText = "Geburtstag: " + entry.datum;
+            let trennungsP = document.createElement("p");
+            trennungsP.innerText = "--------------------";
             entrydiv.appendChild(vornameP);
             entrydiv.appendChild(nachnameP);
             entrydiv.appendChild(farbeP);
             entrydiv.appendChild(datumP);
+            entrydiv.appendChild(trennungsP);
             document.getElementById("outputDiv").appendChild(entrydiv);
         }
     }
