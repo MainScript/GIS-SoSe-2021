@@ -11,19 +11,19 @@ namespace c4 {
         let q: URLSearchParams = new URLSearchParams(<any>inputForm);
         let url: string = "https://mainscript-gis.herokuapp.com/write";
         url += "?" + q.toString();
-        console.log(url);
         let outRes: Response = await fetch(url);
         let out: string = await outRes.text();
-        console.log(out);
+        let responseP: HTMLParagraphElement = document.createElement("p");
+        responseP.innerText = out;
+        document.getElementById("outputDiv").innerHTML = "";
+        document.getElementById("outputDiv").appendChild(responseP);
     }
 
     async function handleRead(): Promise<void> {
         let url: string = "https://mainscript-gis.herokuapp.com/read";
         let outRes: Response = await fetch(url);
         let out: string = await outRes.text();
-        console.log(out);
         let outArray: ReadHandler[] = JSON.parse(out);
-        console.log(JSON.parse(out));
         document.getElementById("outputDiv").innerHTML = "";
         for (let entry of outArray) {
             let entrydiv: HTMLDivElement = document.createElement("div");

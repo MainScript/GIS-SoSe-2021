@@ -11,18 +11,18 @@ var c4;
         let q = new URLSearchParams(inputForm);
         let url = "https://mainscript-gis.herokuapp.com/write";
         url += "?" + q.toString();
-        console.log(url);
         let outRes = await fetch(url);
         let out = await outRes.text();
-        console.log(out);
+        let responseP = document.createElement("p");
+        responseP.innerText = out;
+        document.getElementById("outputDiv").innerHTML = "";
+        document.getElementById("outputDiv").appendChild(responseP);
     }
     async function handleRead() {
         let url = "https://mainscript-gis.herokuapp.com/read";
         let outRes = await fetch(url);
         let out = await outRes.text();
-        console.log(out);
         let outArray = JSON.parse(out);
-        console.log(JSON.parse(out));
         document.getElementById("outputDiv").innerHTML = "";
         for (let entry of outArray) {
             let entrydiv = document.createElement("div");
