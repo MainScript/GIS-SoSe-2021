@@ -21,6 +21,7 @@ var c4;
         let outRes = await fetch(url);
         let out = await outRes.text();
         console.log(out);
+        console.log(JSON.parse(out));
     }
 })(c4 || (c4 = {}));
 //# sourceMappingURL=script.js.map

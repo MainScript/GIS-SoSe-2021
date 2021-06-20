@@ -22,5 +22,6 @@ namespace c4 {
         let outRes: Response = await fetch(url);
         let out: string = await outRes.text();
         console.log(out);
+        console.log(JSON.parse(out));
     }
 }
