@@ -77,6 +77,7 @@ namespace memory {
         let clickedDivBack: HTMLDivElement = <HTMLDivElement>clickedDiv.childNodes[1];
         let card: Card = {id: clickedDiv.id, src: clickedDivImg.src};
         console.log("" + waiting);
+        console.log("TEST FFS");
         if (!waiting) {
             if (clickedCards.length == 0) {
                 clickedCards.push(card);
