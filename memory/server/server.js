@@ -23,9 +23,9 @@ var memoryServer;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         let q = Url.parse(_request.url, true);
         let qdata = q.query;
-        if (q.pathname == "/write") {
+        if (q.pathname == "/writeImg") {
             let outHandler = { link: qdata.imgURL.toString() };
-            let out = await writeToDB(outHandler);
+            let out = await writeToDBImg(outHandler);
             _response.write(out);
         }
         else if (q.pathname == "/getImg") {
@@ -36,6 +36,11 @@ var memoryServer;
             let out = await getHighscores();
             _response.write(JSON.stringify(out));
         }
+        else if (q.pathname == "/writeScore") {
+            let outHandler = { name: qdata.name.toString(), score: +qdata.score.toString() };
+            let out = await writeToDBScore(outHandler);
+            _response.write(out);
+        }
         _response.end();
     }
     async function connectToDB(_url, _col) {
@@ -45,10 +50,23 @@ var memoryServer;
         let collection = mongoClient.db("Memory").collection(_col);
         return collection;
     }
-    async function writeToDB(_link) {
-        let collection = await connectToDB(dbURL, "Images");
-        collection.insertOne(_link);
-        let out = "Dein Eintrag wurde hinzugefügt!";
+    async function writeToDBImg(_link) {
+        let out = "";
+        if (_link.link != "") {
+            let collection = await connectToDB(dbURL, "Images");
+            collection.insertOne(_link);
+            out = "Dein Eintrag wurde hinzugefügt!";
+        }
+        else {
+            out = "Ungültiger Link";
+        }
+        return out;
+    }
+    async function writeToDBScore(_score) {
+        let out = "";
+        let collection = await connectToDB(dbURL, "Scores");
+        collection.insertOne(_score);
+        out = "Dein Eintrag wurde hinzugefügt!";
         return out;
     }
     async function getImages() {

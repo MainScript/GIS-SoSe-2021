@@ -24,3 +24,8 @@ body {
 #selectButtonDiv {
     text-align: center;
 }
+
+.kartenBild {
+    width: 100px;
+    height: 100px;
+}

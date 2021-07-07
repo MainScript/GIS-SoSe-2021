@@ -25,9 +25,9 @@ export namespace memoryServer {
         let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
         let qdata: ParsedUrlQuery = q.query;
         
-        if (q.pathname == "/write") {
+        if (q.pathname == "/writeImg") {
             let outHandler: ImgLink = {link: qdata.imgURL.toString()};
-            let out: string = await writeToDB(outHandler);
+            let out: string = await writeToDBImg(outHandler);
             _response.write(out);
         } else if (q.pathname == "/getImg") {
             let out: string[] = await getImages();
@@ -35,6 +35,10 @@ export namespace memoryServer {
         } else if (q.pathname == "/getScores") {
             let out: string[] = await getHighscores();
             _response.write(JSON.stringify(out));
+        } else if (q.pathname == "/writeScore") {
+            let outHandler: Score = {name: qdata.name.toString(), score: +qdata.score.toString()};
+            let out: string = await writeToDBScore(outHandler);
+            _response.write(out);
         }
 
         _response.end();
@@ -48,10 +52,25 @@ export namespace memoryServer {
         return collection;
     }
 
-    async function writeToDB(_link: ImgLink): Promise<string> {
-        let collection: Mongo.Collection = await connectToDB(dbURL, "Images");
-        collection.insertOne(_link);
-        let out: string = "Dein Eintrag wurde hinzugefügt!";
+    async function writeToDBImg(_link: ImgLink): Promise<string> {
+        let out: string = "";
+        if (_link.link != "") {
+            let collection: Mongo.Collection = await connectToDB(dbURL, "Images");
+            collection.insertOne(_link);
+            out = "Dein Eintrag wurde hinzugefügt!";
+        } else {
+             out = "Ungültiger Link";
+        }
+        
+        return out;
+    }
+
+    async function writeToDBScore(_score: Score): Promise<string> {
+        let out: string = "";
+        let collection: Mongo.Collection = await connectToDB(dbURL, "Scores");
+        collection.insertOne(_score);
+        out = "Dein Eintrag wurde hinzugefügt!";
+        
         return out;
     }
 
@@ -71,5 +90,10 @@ export namespace memoryServer {
 
     interface ImgLink {
         link: string;
+    }
+
+    interface Score {
+        name: string;
+        score: number;
     }
 }
