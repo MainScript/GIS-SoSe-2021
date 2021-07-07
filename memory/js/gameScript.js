@@ -68,7 +68,7 @@ var memory;
         let clickedDivImg = clickedDiv.childNodes[0];
         let clickedDivBack = clickedDiv.childNodes[1];
         let card = { id: clickedDiv.id, src: clickedDivImg.src };
-        console.log(waiting);
+        console.log("" + waiting);
         if (!waiting) {
             if (clickedCards.length == 0) {
                 clickedCards.push(card);

@@ -7,7 +7,7 @@ namespace memory {
     let clickedCards: Card[] = [];
     let foundPairs: number = 0;
     let timerInterval: NodeJS.Timeout;
-    let waiting = false;
+    let waiting: Boolean = false;
 
     window.addEventListener("load", handleLoad);
 
@@ -76,7 +76,7 @@ namespace memory {
         let clickedDivImg: HTMLImageElement = <HTMLImageElement>clickedDiv.childNodes[0];
         let clickedDivBack: HTMLDivElement = <HTMLDivElement>clickedDiv.childNodes[1];
         let card: Card = {id: clickedDiv.id, src: clickedDivImg.src};
-        console.log(waiting);
+        console.log("" + waiting);
         if (!waiting) {
             if (clickedCards.length == 0) {
                 clickedCards.push(card);
