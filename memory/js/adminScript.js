@@ -8,6 +8,7 @@ var adminMemory;
         let q = new URLSearchParams(formD);
         let url = "https://mainscript-gis.herokuapp.com/write";
         url += "?" + q.toString();
+        console.log(url);
         let outRes = await fetch(url);
         let out = await outRes.text();
         console.log(out);

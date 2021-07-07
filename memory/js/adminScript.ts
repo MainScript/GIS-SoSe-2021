@@ -7,6 +7,7 @@ namespace adminMemory {
         let q: URLSearchParams = new URLSearchParams(<any>formD);
         let url: string = "https://mainscript-gis.herokuapp.com/write";
         url += "?" + q.toString();
+        console.log(url);
         let outRes: Response = await fetch(url);
         let out: string = await outRes.text();
         console.log(out);

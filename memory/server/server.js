@@ -24,7 +24,7 @@ var memoryServer;
         let q = Url.parse(_request.url, true);
         let qdata = q.query;
         if (q.pathname == "/write") {
-            let outHandler = qdata.link.toString();
+            let outHandler = qdata.imgURL.toString();
             let out = await writeToDB(outHandler);
             _response.write(out);
         }

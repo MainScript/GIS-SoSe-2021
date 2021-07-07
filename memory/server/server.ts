@@ -26,7 +26,7 @@ export namespace memoryServer {
         let qdata: ParsedUrlQuery = q.query;
         
         if (q.pathname == "/write") {
-            let outHandler: string = qdata.link.toString();
+            let outHandler: string = qdata.imgURL.toString();
             let out: string = await writeToDB(outHandler);
             _response.write(out);
         } else if (q.pathname == "/getImg") {
