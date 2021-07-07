@@ -9,6 +9,7 @@ namespace adminMemory {
         let q: URLSearchParams = new URLSearchParams(<any>formD);
         let url: string = "https://mainscript-gis.herokuapp.com/writeImg";
         url += "?" + q.toString();
+        console.log(url);
         let outRes: Response = await fetch(url);
         let out: string = await outRes.text();
         console.log(out);
@@ -33,13 +34,14 @@ namespace adminMemory {
         }
     }
 
-    async function deleteImg(_event: MouseEvent) {
-        let url: string = "https://mainscript-gis.herokuapp.com/remove?id=";
+    async function deleteImg(_event: MouseEvent): Promise<void> {
+        let url: string = "https://mainscript-gis.herokuapp.com/remove?imgURL=";
         let tarImg: HTMLImageElement =  <HTMLImageElement>_event.currentTarget;
-        url += tarImg.id;
+        url += tarImg.src;
         let outRes: Response = await fetch(url);
         let out: string = await outRes.text();
         console.log(out);
+        handleGet();
     }
 
     interface ImageLink {

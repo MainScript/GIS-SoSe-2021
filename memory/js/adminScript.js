@@ -10,6 +10,7 @@ var adminMemory;
         let q = new URLSearchParams(formD);
         let url = "https://mainscript-gis.herokuapp.com/writeImg";
         url += "?" + q.toString();
+        console.log(url);
         let outRes = await fetch(url);
         let out = await outRes.text();
         console.log(out);
@@ -33,12 +34,13 @@ var adminMemory;
         }
     }
     async function deleteImg(_event) {
-        let url = "https://mainscript-gis.herokuapp.com/remove?id=";
+        let url = "https://mainscript-gis.herokuapp.com/remove?imgURL=";
         let tarImg = _event.currentTarget;
-        url += tarImg.id;
+        url += tarImg.src;
         let outRes = await fetch(url);
         let out = await outRes.text();
         console.log(out);
+        handleGet();
     }
 })(adminMemory || (adminMemory = {}));
 //# sourceMappingURL=adminScript.js.map

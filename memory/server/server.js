@@ -42,7 +42,8 @@ var memoryServer;
             _response.write(out);
         }
         else if (q.pathname == "/remove") {
-            let out = await deleteImg(qdata.id.toString());
+            let outHandler = { link: qdata.imgURL.toString() };
+            let out = await deleteImg(outHandler);
             _response.write(out);
         }
         _response.end();
@@ -85,9 +86,9 @@ var memoryServer;
         let out = await outCursor.toArray();
         return out;
     }
-    async function deleteImg(_id) {
+    async function deleteImg(_link) {
         let collection = await connectToDB(dbURL, "Images");
-        await collection.deleteOne(JSON.parse("{_id : ObjectId(" + _id + ")}"));
+        await collection.deleteOne({ "link": _link.link });
         let out = "deleted";
         return out;
     }
