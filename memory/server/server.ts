@@ -26,7 +26,7 @@ export namespace memoryServer {
         let qdata: ParsedUrlQuery = q.query;
         
         if (q.pathname == "/write") {
-            let outHandler: string = qdata.imgURL.toString();
+            let outHandler: ImgLink = {link: qdata.imgURL.toString()};
             let out: string = await writeToDB(outHandler);
             _response.write(out);
         } else if (q.pathname == "/getImg") {
@@ -48,7 +48,7 @@ export namespace memoryServer {
         return collection;
     }
 
-    async function writeToDB(_link: string): Promise<string> {
+    async function writeToDB(_link: ImgLink): Promise<string> {
         let collection: Mongo.Collection = await connectToDB(dbURL, "Images");
         collection.insertOne(_link);
         let out: string = "Dein Eintrag wurde hinzugefügt!";
@@ -67,5 +67,9 @@ export namespace memoryServer {
         let outCursor: Mongo.Cursor = await collection.find();
         let out: string[] = await outCursor.toArray();
         return out;
+    }
+
+    interface ImgLink {
+        link: string;
     }
 }
