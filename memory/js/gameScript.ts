@@ -7,6 +7,7 @@ namespace memory {
     let clickedCards: Card[] = [];
     let foundPairs: number = 0;
     let timerInterval: NodeJS.Timeout;
+    let waiting = false;
 
     window.addEventListener("load", handleLoad);
 
@@ -75,30 +76,33 @@ namespace memory {
         let clickedDivImg: HTMLImageElement = <HTMLImageElement>clickedDiv.childNodes[0];
         let clickedDivBack: HTMLDivElement = <HTMLDivElement>clickedDiv.childNodes[1];
         let card: Card = {id: clickedDiv.id, src: clickedDivImg.src};
-        if (clickedCards.length == 0) {
-            clickedCards.push(card);
-            clickedDivBack.style.display = "none";
-        } else {
-            if (clickedCards[0].id != card.id) {
+        if (!waiting) {
+            if (clickedCards.length == 0) {
                 clickedCards.push(card);
                 clickedDivBack.style.display = "none";
+            } else if (clickedCards.length == 1) {
+                if (clickedCards[0].id != card.id) {
+                    clickedCards.push(card);
+                    clickedDivBack.style.display = "none";
+                }
             }
-        }
-        
-        if (clickedCards.length == 2) {
-            if (clickedCards[0].src == clickedCards[1].src) {
-                let card0: HTMLDivElement = <HTMLDivElement>spielfeldDiv.childNodes[+clickedCards[0].id];
-                let card1: HTMLDivElement = <HTMLDivElement>spielfeldDiv.childNodes[+clickedCards[1].id];
-                card0.style.display = "none";
-                card1.style.display = "none";
-                foundPairs += 1;
-                clickedCards = [];
-            } else {
-                setTimeout(reshowCards, 1000, [+clickedCards[0].id, +clickedCards[1].id]);
-            }
+            
+            if (clickedCards.length == 2) {
+                if (clickedCards[0].src == clickedCards[1].src) {
+                    let card0: HTMLDivElement = <HTMLDivElement>spielfeldDiv.childNodes[+clickedCards[0].id];
+                    let card1: HTMLDivElement = <HTMLDivElement>spielfeldDiv.childNodes[+clickedCards[1].id];
+                    card0.style.display = "none";
+                    card1.style.display = "none";
+                    foundPairs += 1;
+                    clickedCards = [];
+                } else {
+                    waiting = true;
+                    setTimeout(reshowCards, 1000, [+clickedCards[0].id, +clickedCards[1].id]);
+                }
 
-            if (foundPairs >= linkArr.length / 2) {
-                handleEnd();
+                if (foundPairs >= linkArr.length / 2) {
+                    handleEnd();
+                }
             }
         }
     }
@@ -109,6 +113,7 @@ namespace memory {
         cardBack0.style.display = "block";
         cardBack1.style.display = "block";
         clickedCards = [];
+        waiting = false;
     }
 
     function handleEnd(): void {

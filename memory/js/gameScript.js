@@ -9,6 +9,7 @@ var memory;
     let clickedCards = [];
     let foundPairs = 0;
     let timerInterval;
+    let waiting = false;
     window.addEventListener("load", handleLoad);
     function handleLoad() {
         timerDiv.appendChild(timerP);
@@ -67,30 +68,33 @@ var memory;
         let clickedDivImg = clickedDiv.childNodes[0];
         let clickedDivBack = clickedDiv.childNodes[1];
         let card = { id: clickedDiv.id, src: clickedDivImg.src };
-        if (clickedCards.length == 0) {
-            clickedCards.push(card);
-            clickedDivBack.style.display = "none";
-        }
-        else {
-            if (clickedCards[0].id != card.id) {
+        if (!waiting) {
+            if (clickedCards.length == 0) {
                 clickedCards.push(card);
                 clickedDivBack.style.display = "none";
             }
-        }
-        if (clickedCards.length == 2) {
-            if (clickedCards[0].src == clickedCards[1].src) {
-                let card0 = spielfeldDiv.childNodes[+clickedCards[0].id];
-                let card1 = spielfeldDiv.childNodes[+clickedCards[1].id];
-                card0.style.display = "none";
-                card1.style.display = "none";
-                foundPairs += 1;
-                clickedCards = [];
+            else if (clickedCards.length == 1) {
+                if (clickedCards[0].id != card.id) {
+                    clickedCards.push(card);
+                    clickedDivBack.style.display = "none";
+                }
             }
-            else {
-                setTimeout(reshowCards, 1000, [+clickedCards[0].id, +clickedCards[1].id]);
-            }
-            if (foundPairs >= linkArr.length / 2) {
-                handleEnd();
+            if (clickedCards.length == 2) {
+                if (clickedCards[0].src == clickedCards[1].src) {
+                    let card0 = spielfeldDiv.childNodes[+clickedCards[0].id];
+                    let card1 = spielfeldDiv.childNodes[+clickedCards[1].id];
+                    card0.style.display = "none";
+                    card1.style.display = "none";
+                    foundPairs += 1;
+                    clickedCards = [];
+                }
+                else {
+                    waiting = true;
+                    setTimeout(reshowCards, 1000, [+clickedCards[0].id, +clickedCards[1].id]);
+                }
+                if (foundPairs >= linkArr.length / 2) {
+                    handleEnd();
+                }
             }
         }
     }
@@ -100,6 +104,7 @@ var memory;
         cardBack0.style.display = "block";
         cardBack1.style.display = "block";
         clickedCards = [];
+        waiting = false;
     }
     function handleEnd() {
         console.log("done");
