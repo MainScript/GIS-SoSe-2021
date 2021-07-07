@@ -10,10 +10,8 @@ var adminMemory;
         let q = new URLSearchParams(formD);
         let url = "https://mainscript-gis.herokuapp.com/writeImg";
         url += "?" + q.toString();
-        console.log(url);
         let outRes = await fetch(url);
-        let out = await outRes.text();
-        console.log(out);
+        await outRes.text();
         handleGet();
     }
     async function handleGet() {
@@ -25,21 +23,25 @@ var adminMemory;
         for (let img of imgArr) {
             let imgDiv = document.createElement("div");
             let imgCon = document.createElement("img");
+            let delB = document.createElement("a");
             imgCon.src = img.link;
             imgCon.classList.add("kartenBild");
             imgCon.id = img._id;
-            imgCon.addEventListener("click", deleteImg);
+            delB.innerText = "delete";
+            delB.classList.add("aButtonSmall");
+            delB.addEventListener("click", deleteImg);
+            delB.id = imgCon.src;
             imgDiv.appendChild(imgCon);
+            imgDiv.appendChild(delB);
             imagesDiv.appendChild(imgDiv);
         }
     }
     async function deleteImg(_event) {
         let url = "https://mainscript-gis.herokuapp.com/remove?imgURL=";
         let tarImg = _event.currentTarget;
-        url += tarImg.src;
+        url += tarImg.id;
         let outRes = await fetch(url);
-        let out = await outRes.text();
-        console.log(out);
+        await outRes.text();
         handleGet();
     }
 })(adminMemory || (adminMemory = {}));
