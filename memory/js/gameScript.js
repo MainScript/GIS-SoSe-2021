@@ -21,6 +21,7 @@ var memory;
     }
     async function fillSpielfeld() {
         await handleGet();
+        console.log("test");
         let feldW = 6;
         let cardW = 105;
         // Der nachfolgende for-Loop ist der Fisher-Yates-Shuffle: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
