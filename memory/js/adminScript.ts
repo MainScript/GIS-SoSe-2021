@@ -16,6 +16,7 @@ namespace adminMemory {
     }
 
     async function handleGet(): Promise<void> {
+        imagesDiv.innerHTML = "";
         let url: string = "https://mainscript-gis.herokuapp.com/getImg";
         let outRes: Response = await fetch(url);
         let out: string = await outRes.text();
@@ -25,14 +26,24 @@ namespace adminMemory {
             let imgCon: HTMLImageElement = document.createElement("img");
             imgCon.src = img.link;
             imgCon.classList.add("kartenBild");
-            imgCon.id = img.id;
+            imgCon.id = img._id;
+            imgCon.addEventListener("click", deleteImg);
             imgDiv.appendChild(imgCon);
             imagesDiv.appendChild(imgDiv);
         }
     }
 
+    async function deleteImg(_event: MouseEvent) {
+        let url: string = "https://mainscript-gis.herokuapp.com/remove?id=";
+        let tarImg: HTMLImageElement =  <HTMLImageElement>_event.currentTarget;
+        url += tarImg.id;
+        let outRes: Response = await fetch(url);
+        let out: string = await outRes.text();
+        console.log(out);
+    }
+
     interface ImageLink {
-        id: string;
+        _id: string;
         link: string;
     }
 }

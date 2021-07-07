@@ -39,6 +39,9 @@ export namespace memoryServer {
             let outHandler: Score = {name: qdata.name.toString(), score: +qdata.score.toString()};
             let out: string = await writeToDBScore(outHandler);
             _response.write(out);
+        } else if (q.pathname == "/remove") {
+            let out: string = await deleteImg(qdata.id.toString());
+            _response.write(out);
         }
 
         _response.end();
@@ -85,6 +88,13 @@ export namespace memoryServer {
         let collection: Mongo.Collection = await connectToDB(dbURL, "Scores");
         let outCursor: Mongo.Cursor = await collection.find();
         let out: string[] = await outCursor.toArray();
+        return out;
+    }
+
+    async function deleteImg(_id: string): Promise<string> {
+        let collection: Mongo.Collection = await connectToDB(dbURL, "Images");
+        await collection.deleteOne(JSON.parse("{_id : ObjectId(" + _id + ")}"));
+        let out: string = "deleted";
         return out;
     }
 

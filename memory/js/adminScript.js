@@ -16,6 +16,7 @@ var adminMemory;
         handleGet();
     }
     async function handleGet() {
+        imagesDiv.innerHTML = "";
         let url = "https://mainscript-gis.herokuapp.com/getImg";
         let outRes = await fetch(url);
         let out = await outRes.text();
@@ -25,10 +26,19 @@ var adminMemory;
             let imgCon = document.createElement("img");
             imgCon.src = img.link;
             imgCon.classList.add("kartenBild");
-            imgCon.id = img.id;
+            imgCon.id = img._id;
+            imgCon.addEventListener("click", deleteImg);
             imgDiv.appendChild(imgCon);
             imagesDiv.appendChild(imgDiv);
         }
+    }
+    async function deleteImg(_event) {
+        let url = "https://mainscript-gis.herokuapp.com/remove?id=";
+        let tarImg = _event.currentTarget;
+        url += tarImg.id;
+        let outRes = await fetch(url);
+        let out = await outRes.text();
+        console.log(out);
     }
 })(adminMemory || (adminMemory = {}));
 //# sourceMappingURL=adminScript.js.map

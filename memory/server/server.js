@@ -41,6 +41,10 @@ var memoryServer;
             let out = await writeToDBScore(outHandler);
             _response.write(out);
         }
+        else if (q.pathname == "/remove") {
+            let out = await deleteImg(qdata.id.toString());
+            _response.write(out);
+        }
         _response.end();
     }
     async function connectToDB(_url, _col) {
@@ -79,6 +83,12 @@ var memoryServer;
         let collection = await connectToDB(dbURL, "Scores");
         let outCursor = await collection.find();
         let out = await outCursor.toArray();
+        return out;
+    }
+    async function deleteImg(_id) {
+        let collection = await connectToDB(dbURL, "Images");
+        await collection.deleteOne(JSON.parse("{_id : ObjectId(" + _id + ")}"));
+        let out = "deleted";
         return out;
     }
 })(memoryServer = exports.memoryServer || (exports.memoryServer = {}));
