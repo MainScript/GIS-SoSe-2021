@@ -24,7 +24,6 @@ namespace memory {
 
     async function fillSpielfeld(): Promise<void> {
         await handleGet();
-        console.log("test");
         let feldW: number = 6;
         let cardW: number = 105;
         // Der nachfolgende for-Loop ist der Fisher-Yates-Shuffle: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
@@ -77,8 +76,6 @@ namespace memory {
         let clickedDivImg: HTMLImageElement = <HTMLImageElement>clickedDiv.childNodes[0];
         let clickedDivBack: HTMLDivElement = <HTMLDivElement>clickedDiv.childNodes[1];
         let card: Card = {id: clickedDiv.id, src: clickedDivImg.src};
-        console.log("" + waiting);
-        console.log("TEST FFS");
         if (!waiting) {
             if (clickedCards.length == 0) {
                 clickedCards.push(card);
