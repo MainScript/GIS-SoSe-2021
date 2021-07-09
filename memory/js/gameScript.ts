@@ -117,8 +117,10 @@ namespace memory {
     }
 
     function handleEnd(): void {
-        console.log("done");
+        sessionStorage.setItem("time", "" + (Date.now() - startTime));
+        sessionStorage.setItem("pairs", "" + (Math.floor(linkArr.length / 2)));
         clearInterval(timerInterval);
+        window.location.href = "uploadScore.html";
     }
 
     interface ImageLink {

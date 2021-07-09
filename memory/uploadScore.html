@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Upload Your Score!</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <script src="js/uploadScript.js" defer></script>
+</head>
+<body>
+    <div id=uploadFormDiv>
+        <form id="uploadForm">
+            <label for="name">Dein Name: </label>
+            <input type="text" name="name" id="name" maxlength="3">
+            <input type="hidden" name="score" id="scoreInp">
+        </form>
+        <p>Dein Score: <span id="scoreSpan"></span></p>
+        <button id="scoreUploadButton">UPLOAD!</button>
+    </div>
+    <div id="uploadButtonsDiv">
+        <button id="playAgainB">Nochmal spielen?</button>
+        <button id="mainMenuB">Zurück zum Hauptmenü?</button>
+    </div>
+</body>
+</html>

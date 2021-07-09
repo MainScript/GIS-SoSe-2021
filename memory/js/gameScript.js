@@ -107,8 +107,10 @@ var memory;
         waiting = false;
     }
     function handleEnd() {
-        console.log("done");
+        sessionStorage.setItem("time", "" + (Date.now() - startTime));
+        sessionStorage.setItem("pairs", "" + (Math.floor(linkArr.length / 2)));
         clearInterval(timerInterval);
+        window.location.href = "uploadScore.html";
     }
 })(memory || (memory = {}));
 //# sourceMappingURL=gameScript.js.map
