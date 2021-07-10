@@ -26,6 +26,18 @@ namespace memory {
         await handleGet();
         let feldW: number = 6;
         let cardW: number = 105;
+        let divWidth: number = spielfeldDiv.getBoundingClientRect().width;
+        let xOffset: number = 0;
+        if (divWidth < 585) {
+            cardW = 80;
+        }
+        if (divWidth < cardW * 6) {
+            feldW = Math.floor(divWidth / cardW);
+            xOffset = (divWidth - (feldW * cardW)) / 2;
+        }
+        
+        
+
         // Der nachfolgende for-Loop ist der Fisher-Yates-Shuffle: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
         for (let i: number = linkArr.length - 1; i > 0; i--) {
             let j: number = Math.round(Math.random() * i);
@@ -36,7 +48,7 @@ namespace memory {
         
         for (let i: number = 0; i < linkArr.length; i++) {
             let y: number = Math.floor(i / feldW) * cardW + 125;
-            let x: number = (i % feldW) * cardW + 5;
+            let x: number = (i % feldW) * cardW + 5 + xOffset;
             let cardDiv: HTMLDivElement = document.createElement("div");
             cardDiv.classList.add("card");
             cardDiv.style.left = x + "px";
